@@ -1,0 +1,58 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Poetry specific files
+poetry.lock
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+.VENV/
+env.bak/
+venv.bak/
+
+# Tortoise ORM generated files
+*.sqlite3
+*.db
+*.json
+
+# FastAPI
+instance/
+.web-test/
+.webtest/
+
+# Logs
+logs/
+*.log
+
+# Test results
+htmlcov/
+.tox/
+.cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+pytest_cache/
+.pytest_cache/
+*.prof
+
+# Editors and OS generated files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.orig
+
+# Ignore env file if you store environment variables in a .env file
+.env

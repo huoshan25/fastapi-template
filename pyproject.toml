@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "webTest_api"
+version = "0.1.0"
+description = ""
+authors = ["liliangcan <2633057734@qq.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.112.0"
+tortoise-orm = "^0.21.5"
+aiomysql = "^0.2.0"
+routers = "^0.10.1"
+router = "^0.1"
+passlib = "^1.7.4"
+pydantic = {extras = ["email"], version = "^2.8.2"}
+pytest = "^8.3.2"
+black = "^24.8.0"
+uvicorn = "^0.30.6"
+gunicorn = "^23.0.0"
+workers = "^0.1"
+hypercorn = "^0.17.3"
+requests = "^2.32.3"
+cryptography = "^43.0.0"
+fastapi-utils = "^0.7.0"
+python-jose = "^3.3.0"
+bcrypt = "3.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
