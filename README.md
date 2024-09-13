@@ -72,3 +72,44 @@ $ poetry run uvicorn src.main:app --port 8005
    实现了自动扫描和注册模块路由的功能,简化了路由管理。
 6. **日志模块** (src/core/log_config.py)
    自定义的日志记录功能，包括API调用日志和错误日志。日志文件存储在项目根目录的 logs 文件夹中。
+
+
+## 公共组件
+
+### 1. 模型 (src/common/models.py)
+
+定义了通用的数据库模型基类。
+
+### 2. 模式 (src/common/schemas.py)
+
+定义了通用的Pydantic模型,如响应模型和分页查询模型。
+
+### 3. 服务 (src/common/service.py)
+
+提供了通用的服务类,实现了基础的CRUD操作。
+
+## 主应用 (src/main.py)
+
+配置了FastAPI应用,包括CORS中间件、Tortoise ORM集成、认证中间件和路由注册。
+
+## 开发指南
+
+1. 新增模块:
+- 在 `src/modules` 下创建新的模块目录
+- 实现模型、模式、控制器和服务
+- 系统将自动加载新模块的路由
+
+2. 自定义响应:
+- 使用 `src/core/response.py` 中的 `response` 函数来确保一致的响应格式
+
+3. 数据库操作:
+- 使用 `src/core/dbhelper.py` 中的 `DbHelper` 类来简化数据库操作
+
+4. 认证:
+- 使用 `@Depends(get_current_user)` 来保护需要认证的路由
+
+
+## 注意事项
+
+- 确保在生产环境中更新 `SECRET_KEY` 和数据库配置
+- 根据需要调整CORS设置
