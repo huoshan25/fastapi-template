@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "webTest_api"
+name = "fastapi-template"
 version = "0.1.0"
 description = ""
-authors = ["liliangcan <2633057734@qq.com>"]
+authors = ["cainiao25 <2633057734@qq.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
