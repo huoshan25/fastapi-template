@@ -1,11 +1,11 @@
 from fastapi import Request, HTTPException
 
 from src.core.auth import get_current_user
-from src.core.response import response
+from src.core.interfaces.response import response
 
 
 async def auth_middleware(request: Request, call_next):
-    if request.url.path in ["/docs", "/redoc", "/openapi.json", "/user/login", "/user/register", "/user/refresh"]:
+    if request.url.path in ["/docs", "/redoc", "/user/token", "/openapi.json", "/user/login", "/user/register", "/user/refresh"]:
         return await call_next(request)
 
     token = request.headers.get("Authorization")

@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from jose import jwt, JWTError
 from pydantic import BaseModel
 
-from src.core.response import response
+from src.core.interfaces.response import response
 
 
 class TokenData(BaseModel):

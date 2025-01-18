@@ -3,13 +3,13 @@ from fastapi.security import OAuth2PasswordBearer
 from starlette.responses import JSONResponse
 
 from src.core.jwt import JWTTokenManager
-from src.core.response import response
+from src.core.interfaces.response import response
 from src.modules.user.models import User
 from src.modules.user.schemas.user import UserInDB
 
 # 创建OAuth2PasswordBearer实例，用于处理token的依赖
 # tokenUrl指定了获取token的endpoint
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/user/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/user/token")
 
 # 创建JWTTokenManager实例，用于处理JWT token的操作
 token_manager = JWTTokenManager()

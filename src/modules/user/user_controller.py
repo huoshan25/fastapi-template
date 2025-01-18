@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends
 
 from src.core.auth import get_current_user, get_refresh_token
-from src.core.response import response
+from src.core.interfaces.response import response, token_response
+from src.core.log import log_api_call
 from src.modules.user.schemas.user import UserCreate, UserLogin
 from src.modules.user.user_service import UserService
 
@@ -23,6 +24,15 @@ class UserController:
             data = await user_service.authenticate_user(user)
             return response(data=data, message="登录成功！")
 
+        @self.router.post("/token", summary="获取token")
+        # @log_api_call
+        async def get_token(
+                user: UserLogin = Depends(UserLogin.as_form),
+                user_service: UserService = Depends(UserService)
+        ):
+            data = await user_service.authenticate_user(user)
+            return token_response(access_token=data['access_token'], token_type=data['token_type'])
+
         @self.router.post("/refresh", summary="刷新访问令牌")
         async def refresh_token_route(
                 refresh_token: str = Depends(get_refresh_token),
@@ -31,6 +41,7 @@ class UserController:
             return await user_service.refresh_token(refresh_token)
 
         @self.router.get("/userInfo", summary="获取当前用户信息")
+        @log_api_call
         async def get_current_user_info(current_user=Depends(get_current_user)):
             return response(data=current_user)
 

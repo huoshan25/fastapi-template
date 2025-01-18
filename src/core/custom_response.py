@@ -1,5 +1,5 @@
 from fastapi.responses import JSONResponse
-from src.core.response import response
+from src.core.interfaces.response import response
 
 
 class CustomJSONResponse(JSONResponse):

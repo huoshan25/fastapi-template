@@ -4,7 +4,7 @@ from tortoise.exceptions import IntegrityError
 from src.core.security import PasswordManager, BcryptPasswordManager
 from src.core.jwt import TokenManager, JWTTokenManager
 from src.core.log_config import api_logger, error_logger
-from src.core.response import response
+from src.core.interfaces.response import response
 from src.modules.user.models import User
 from src.modules.user.schemas.user import UserCreate, UserLogin, UserInDB
 
