@@ -7,8 +7,18 @@ from src.core.custom_response import CustomJSONResponse
 from src.core.dbConfig import TORTOISE_ORM
 from src.core.load_routers import register_routes
 
-app = FastAPI(default_response_class=CustomJSONResponse)
+app = FastAPI(
+    title="fastapi-template",
+    description="fastapi的模板项目",
+    version="1.0.0",
+    default_response_class=CustomJSONResponse,
+    # Swagger UI 配置
+    docs_url="/docs",  # Swagger UI的访问地址
+    redoc_url="/redoc",  # ReDoc文档的访问地址
+    openapi_url="/openapi.json"  # OpenAPI架构的地址
+)
 
+# 注册数据库
 register_tortoise(
     app=app,
     config=TORTOISE_ORM,

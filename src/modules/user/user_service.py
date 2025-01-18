@@ -88,7 +88,7 @@ class UserService:
                 "token_type": "bearer"
             }
             api_logger.info(f"用户登录成功: {user.username}")
-            return response(data=data, message="登录成功！")
+            return data
         else:
             error_logger.error(f'用户登录失败: {user.username}')
             return response(code=404, message="密码错误！")

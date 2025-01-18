@@ -5,7 +5,7 @@ from src.core.response import response
 
 
 async def auth_middleware(request: Request, call_next):
-    if request.url.path in ["/docs", "/openapi.json", "/user/login", "/user/register", "/user/refresh"]:
+    if request.url.path in ["/docs", "/redoc", "/openapi.json", "/user/login", "/user/register", "/user/refresh"]:
         return await call_next(request)
 
     token = request.headers.get("Authorization")
